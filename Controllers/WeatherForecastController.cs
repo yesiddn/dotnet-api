@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace dotnet_api.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("api/[controller]")]
 public class WeatherForecastController : ControllerBase
 {
     private static readonly string[] Summaries = new[]
@@ -30,7 +30,11 @@ public class WeatherForecastController : ControllerBase
         }
     }
 
-    [HttpGet(Name = "GetWeatherForecast")]
+    [HttpGet(Name = "GetWeatherForecast")] // Name sirve para poder referenciar a este endpoint en otros lugares
+    [Route("GetWeatherForecast")] // asi se declara un endpoint con un nombre especifico
+    // cuando en el controlador existe un unico get, se puede acceder a el con la url base + el nombre del controlador
+    [Route("Get/WeatherForecast")] // pueden existir multiples rutas para un mismo endpoint
+    [Route("[action]")] // se puede acceder a este endpoint con la url base + el nombre del controlador + el nombre del metodo -> action se refiere al nombre del metodo
     public IEnumerable<WeatherForecast> Get()
     {
         return ListWeatherForecast;
