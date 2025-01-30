@@ -16,7 +16,12 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()); // middleware para habilitar CORS
+
 app.UseAuthorization();
+
+app.UseWelcomePage(); // middleware para mostrar una pagina de bienvenida
+// en este punto se ponen los middlewares personalizados
 
 app.MapControllers();
 
