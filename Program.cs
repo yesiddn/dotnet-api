@@ -1,3 +1,5 @@
+using dotnet_api.Middlewares;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -22,6 +24,8 @@ app.UseAuthorization();
 
 app.UseWelcomePage(); // middleware para mostrar una pagina de bienvenida
 // en este punto se ponen los middlewares personalizados
+
+app.UseTimeMiddleware(); // middleware personalizado
 
 app.MapControllers();
 
