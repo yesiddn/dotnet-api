@@ -37,6 +37,7 @@ public class WeatherForecastController : ControllerBase
     [Route("[action]")] // se puede acceder a este endpoint con la url base + el nombre del controlador + el nombre del metodo -> action se refiere al nombre del metodo
     public IEnumerable<WeatherForecast> Get()
     {
+        _logger.LogInformation("Getting weather forecast");
         return ListWeatherForecast;
     }
 
