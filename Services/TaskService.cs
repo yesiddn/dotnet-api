@@ -2,7 +2,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace dotnet_api.Services;
 
-public class TaskService
+public class TaskService : ITaskService
 {
   private readonly TasksContext _context;
 
