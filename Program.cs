@@ -14,7 +14,8 @@ builder.Services.AddScoped<IHelloWorldService, HelloWorldService>(); // se crea 
 // builder.Services.AddTransient<IHelloWorldService, HelloWorldService>(); // se crea una nueva instancia de HelloWorldService cada vez que se inyecta en un controlador
 // builder.Services.AddSingleton<IHelloWorldService, HelloWorldService>(); // se crea una sola instancia de HelloWorldService y se reutiliza cada vez que se inyecta en un controlador
 // builder.Services.AddScoped(s => new HelloWorldService()); // esta es otra forma de inyectar servicios, se crea una nueva instancia de HelloWorldService por cada petición, pero no se recomienda esta forma ya que no es tan flexible como usar interfaces
-
+builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<ITaskService, TaskService>();
 
 var app = builder.Build();
 
