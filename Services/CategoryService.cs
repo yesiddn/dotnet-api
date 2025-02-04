@@ -1,8 +1,10 @@
+using Microsoft.EntityFrameworkCore;
+
 namespace dotnet_api.Services;
 
 public class CategoryService : ICategoryService
 {
-  TasksContext _context;
+  private readonly TasksContext _context;
 
   public CategoryService(TasksContext context) {
     _context = context;
