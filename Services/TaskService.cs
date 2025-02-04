@@ -11,9 +11,9 @@ public class TaskService : ITaskService
     _context = context;
   }
 
-  public async Task<List<Models.Task>> GetTasks()
+  public IEnumerable<Models.Task> GetTasks()
   {
-    return await _context.Tasks.ToListAsync();
+    return _context.Tasks;
   }
 
   public async Task<Models.Task> CreateTask(Models.Task task)
@@ -51,7 +51,7 @@ public class TaskService : ITaskService
 
 public interface ITaskService
 {
-  Task<List<Models.Task>> GetTasks();
+  IEnumerable<Models.Task> GetTasks();
   Task<Models.Task> CreateTask(Models.Task task);
   Task UpdateTask(Guid id, Models.Task task);
   Task DeleteTask(Guid id);
