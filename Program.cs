@@ -1,3 +1,4 @@
+using dotnet_api;
 using dotnet_api.Middlewares;
 using dotnet_api.Services;
 
@@ -8,6 +9,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+
+// inyección de dependencias
+builder.Services.AddSqlServer<TasksContext>(builder.Configuration.GetConnectionString("DefaultConnection"));
+
 
 // se recomienda esta forma de inyectar servicios ya que la idea es que las api sean stateless y con cada petición se cree una nueva instancia del servicio
 builder.Services.AddScoped<IHelloWorldService, HelloWorldService>(); // se crea una nueva instancia de HelloWorldService por cada petición
